@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)https://viettuts.vn/java-swing/event-listener-trong-java-swing -->
+<html class="wf-fontawesome-n4-active wf-active"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Event Listener trong Java Swing - Học lập trình Java online - VietTuts</title>
+    <meta name="description" content="Event Listener biểu diễn các giao diện chịu trách nhiệm xử lý các sự kiện. Java cung cấp các lớp Event Listener đa dạng, nhưng trong chương này chúng ta chỉ tập trung vào các lớp mà thường xuyên được sử dụng.">
+    <link rel="canonical" href="https://viettuts.vn/java-swing/event-listener-trong-java-swing">
+    
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Event Listener trong Java Swing - Học lập trình Java online - VietTuts">
+    <meta property="og:description" content="Event Listener biểu diễn các giao diện chịu trách nhiệm xử lý các sự kiện. Java cung cấp các lớp Event Listener đa dạng, nhưng trong chương này chúng ta chỉ tập trung vào các lớp mà thường xuyên được sử dụng.">
+    <meta property="og:url" content="https://viettuts.vn/java-swing/event-listener-trong-java-swing">
+    <meta property="og:site_name" content="VietTuts">
+    
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="Event Listener biểu diễn các giao diện chịu trách nhiệm xử lý các sự kiện. Java cung cấp các lớp Event Listener đa dạng, nhưng trong chương này chúng ta chỉ tập trung vào các lớp mà thường xuyên được sử dụng.">
+    <meta name="twitter:title" content="Event Listener trong Java Swing - Học lập trình Java online - VietTuts">
+    
+    <meta property="fb:app_id" content="1848307242163903">
+    
+    <link rel="icon" href="https://viettuts.vn/images/webimage/title-icon.png" sizes="32x32">
+    <link rel="icon" href="https://viettuts.vn/images/webimage/title-icon.png" sizes="192x192">
+    <link rel="apple-touch-icon-precomposed" href="https://viettuts.vn/images/webimage/title-icon.png">
+    <meta name="msapplication-TileImage" content="/images/webimage/title-icon.png">
+    
+    <link rel="stylesheet" type="text/css" href="./Event Listener trong Java Swing - Học lập trình Java online - VietTuts_files/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="./Event Listener trong Java Swing - Học lập trình Java online - VietTuts_files/shCore.css">
+    <link rel="stylesheet" type="text/css" href="./Event Listener trong Java Swing - Học lập trình Java online - VietTuts_files/shThemeDefault.css">
+    
+    <script src="./Event Listener trong Java Swing - Học lập trình Java online - VietTuts_files/sdk.js.tải xuống" async="" crossorigin="anonymous"></script><script id="facebook-jssdk" src="./Event Listener trong Java Swing - Học lập trình Java online - VietTuts_files/sdk(1).js.tải xuống"></script><script src="./Event Listener trong Java Swing - Học lập trình Java online - VietTuts_files/webfontloader.js.tải xuống"></script><script async="" src="./Event Listener trong Java Swing - Học lập trình Java online - VietTuts_files/analytics.js.tải xuống"></script>
+    <script src="./Event Listener trong Java Swing - Học lập trình Java online - VietTuts_files/jquery.min.js.tải xuống"></script>
+    <script src="./Event Listener trong Java Swing - Học lập trình Java online - VietTuts_files/745f2f906e.js.tải xuống"></script>
+    
+    <!-- Google tag (gtag.js) - Google Analytics -->
+    <script async="" src="./Event Listener trong Java Swing - Học lập trình Java online - VietTuts_files/js"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-LRR0ZL400G');
+    </script>
+    
+    <!--  facebook comment -->
+    <script>
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10&appId=1848307242163903";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+    
+    <!-- back to top -->
+    <link rel="stylesheet" href="./Event Listener trong Java Swing - Học lập trình Java online - VietTuts_files/745f2f906e.css" media="all"><script type="text/javascript">
+    var ip = "";
+    var checkedGA = false;
+    let slideIndex = 1;
+    
+    jQuery(document).ready(function(a) {
+          var b = a(".generate-back-to-top").data("start-scroll"), c = a(
+              ".generate-back-to-top").data("scroll-speed"), d = a("a.generate-back-to-top"), e = a(window);
+          e.scroll(function() {
+            e.scrollTop() > b ? a(d).css({
+              opacity : "1",
+              visibility : "visible"
+            }) : a(d).css({
+              opacity : "0",
+              visibility : "hidden"
+            })
+          }), a(d).on("click", function(b) {
+            b.preventDefault(), a("html, body").animate({
+              scrollTop : 0
+            }, c)
+          });
+          
+          // ajaxDemoUpate();
+          // checkIp();
+          // carousel();
+        });
+    
+    function checkIp() {
+      //$.getJSON("https://api.ipify.org?format=json", function(data) {
+      //      ip = data.ip;
+      //})
+      setTimeout(checkAds(1, ""), 2000);
+      setTimeout(checkAds(2, ""), 7000);
+      setTimeout(checkAds(3, ""), 10000);
+      setTimeout(checkAds(4, ""), 15000);
+      setTimeout(checkAds(5, ""), 20000);
+    }
+    
+    function ajaxDemoUpate() {
+        var statisticsPages = {}
+        statisticsPages["postId"] = $("#postId").val();
+        statisticsPages["verifyPage"] = $("#verifyPage").val();
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: "/api/update/pageviews",
+            data: JSON.stringify(statisticsPages),
+            dataType: 'json',
+            cache: false,
+            timeout: 60000,
+            success: function (data) {
+            },
+            error: function (e) {
+            }
+        });
+    }
+    
+    function checkAds(count, ip) {
+        if (checkedGA) {
+            return;
+        }
+        var statisticsPages = {}
+        var gaAds = $('#ad-content-header-ga ins').html();
+        console.log(count);
+        console.log(gaAds);
+        console.log(ip);
+        if (gaAds != null && gaAds.length > 0) {
+            // show ga by default
+            // hide at
+            $("#slideshow-container-at").hide();
+            //$("#ad-content-footer-at").hide();
+            //$("#ad-left-menu-main-at").hide();
+            $("#ad-right-menu-main-at").hide();
+            checkedGA = true;
+        } else {
+            ajaxUpdateAdsStatus(count, ip);
+            // hide ga
+            $("#ad-content-header-ga").hide();
+            // $("#ad-content-footer-ga").hide();
+            // $("#ad-left-menu-main-ga").hide();
+            $("#ad-right-menu-main-ga").hide();
+            // show at
+            $("#slideshow-container-at").show();
+            $("#ad-content-footer-at").hide();
+            $("#ad-left-menu-main-at").hide();
+            $("#ad-right-menu-main-at").show();
+        }
+    }
+    
+    function ajaxUpdateAdsStatus(count, ip) {
+        var statisticsPages = {}
+        statisticsPages["postId"] = $("#postId").val();
+        statisticsPages["verifyPage"] = $("#verifyPage").val();
+        statisticsPages["count"] = count;
+        statisticsPages["ip"] = ip;
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: "/api/update/adslog",
+            data: JSON.stringify(statisticsPages),
+            dataType: 'json',
+            cache: false,
+            timeout: 60000,
+            success: function (data) {
+            },
+            error: function (e) {
+            }
+        });
+    }
+    
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        // slides = $(".mySlides").length;
+        if (n > slides.length) {
+          slideIndex = 1
+        }
+        if (n < 1) {
+          slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";  
+        }
+        slides[slideIndex-1].style.display = "block";
+      }
+
+      // Next/previous controls
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+
+      // Thumbnail image controls
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+
+      function carousel() {
+        var slides = document.getElementsByClassName("mySlides");
+        if (slides.length > 0) {
+            showSlides(slideIndex);
+            slideIndex++;
+            if (slideIndex > slides.length) {
+              slideIndex = 1;
+            }
+            setTimeout(carousel, 2000); // Change image every 2 seconds
+        }
+      }
+    </script>
+    
+    <!-- refer: http://alexgorbatchev.com/SyntaxHighlighter/manual/installation.html -->
+    <script type="text/javascript" src="./Event Listener trong Java Swing - Học lập trình Java online - VietTuts_files/shCore.js.tải xuống"></script>
+    
+      <script type="text/javascript" src="./Event Listener trong Java Swing - Học lập trình Java online - VietTuts_files/shBrushXml.js.tải xuống"></script>
+    <script type="text/javascript" src="./Event Listener trong Java Swing - Học lập trình Java online - VietTuts_files/shBrushJava.js.tải xuống"></script><script type="text/javascript">
+       SyntaxHighlighter.all()
+    </script><style type="text/css" data-fbcssmodules="css:fb.css.base css:fb.css.dialog css:fb.css.iframewidget css:fb.css.customer_chat_plugin_iframe">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:'lucida grande', tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:'lucida grande', tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://connect.facebook.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://connect.facebook.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://connect.facebook.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://connect.facebook.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://connect.facebook.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:white 0 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://connect.facebook.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://connect.facebook.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}
+.fb_mpn_mobile_landing_page_slide_out{animation-duration:200ms;animation-name:fb_mpn_landing_page_slide_out;transition-timing-function:ease-in}.fb_mpn_mobile_landing_page_slide_out_from_left{animation-duration:200ms;animation-name:fb_mpn_landing_page_slide_out_from_left;transition-timing-function:ease-in}.fb_mpn_mobile_landing_page_slide_up{animation-duration:500ms;animation-name:fb_mpn_landing_page_slide_up;transition-timing-function:ease-in}.fb_mpn_mobile_bounce_in{animation-duration:300ms;animation-name:fb_mpn_bounce_in;transition-timing-function:ease-in}.fb_mpn_mobile_bounce_out{animation-duration:300ms;animation-name:fb_mpn_bounce_out;transition-timing-function:ease-in}.fb_mpn_mobile_bounce_out_v2{animation-duration:300ms;animation-name:fb_mpn_fade_out;transition-timing-function:ease-in}.fb_customer_chat_bounce_in_v2{animation-duration:300ms;animation-name:fb_bounce_in_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_in_from_left{animation-duration:300ms;animation-name:fb_bounce_in_from_left;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2{animation-duration:300ms;animation-name:fb_bounce_out_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_from_left{animation-duration:300ms;animation-name:fb_bounce_out_from_left;transition-timing-function:ease-in}.fb_invisible_flow{display:inherit;height:0;overflow-x:hidden;width:0}@keyframes fb_mpn_landing_page_slide_out{0%{margin:0 12px;width:100% - 24px}60%{border-radius:18px}100%{border-radius:50%;margin:0 24px;width:60px}}@keyframes fb_mpn_landing_page_slide_out_from_left{0%{left:12px;width:100% - 24px}60%{border-radius:18px}100%{border-radius:50%;left:12px;width:60px}}@keyframes fb_mpn_landing_page_slide_up{0%{bottom:0;opacity:0}100%{bottom:24px;opacity:1}}@keyframes fb_mpn_bounce_in{0%{opacity:.5;top:100%}100%{opacity:1;top:0}}@keyframes fb_mpn_fade_out{0%{bottom:30px;opacity:1}100%{bottom:0;opacity:0}}@keyframes fb_mpn_bounce_out{0%{opacity:1;top:0}100%{opacity:.5;top:100%}}@keyframes fb_bounce_in_v2{0%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}50%{transform:scale(1.03, 1.03);transform-origin:bottom right}100%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}}@keyframes fb_bounce_in_from_left{0%{opacity:0;transform:scale(0, 0);transform-origin:bottom left}50%{transform:scale(1.03, 1.03);transform-origin:bottom left}100%{opacity:1;transform:scale(1, 1);transform-origin:bottom left}}@keyframes fb_bounce_out_v2{0%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}100%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}}@keyframes fb_bounce_out_from_left{0%{opacity:1;transform:scale(1, 1);transform-origin:bottom left}100%{opacity:0;transform:scale(0, 0);transform-origin:bottom left}}@keyframes slideInFromBottom{0%{opacity:.1;transform:translateY(100%)}100%{opacity:1;transform:translateY(0)}}@keyframes slideInFromBottomDelay{0%{opacity:0;transform:translateY(100%)}97%{opacity:0;transform:translateY(100%)}100%{opacity:1;transform:translateY(0)}}</style></head>
+      
+    
+    
+  
+  
+  <body class="page-template-default page page-id-3100 page-parent header-full-width full-width-content genesis-breadcrumbs-hidden">
+  
+  <!-- Include _menu.html -->
+  
+  
+    <div class="site-container" style="height: auto !important;">
+      <header class="site-header">
+                <div class="wrap">
+          <div class="title-area">
+            <p class="site-title"><a href="https://viettuts.vn/">VietTuts</a></p>
+            <p class="site-description">Tự Học Lập Trình Online</p>
+          </div>
+        </div>
+        <div class="mobilemenu">
+          <div style="margin-top:10px;padding:0px;text-align:left;">
+            <span style="float:left"><input type="image" src="./Event Listener trong Java Swing - Học lập trình Java online - VietTuts_files/menuhome64.png" onclick="showmenu()"></span>
+          </div>
+        </div>
+      </header>
+      <nav class="nav-secondary" aria-label="Secondary">
+                <div class="wrap">
+          <ul id="menu-mainmenu" class="menu genesis-nav-menu menu-secondary">
+            <li id="menu-item-12" class="menu-item"><a href="https://viettuts.vn/"><span>Home</span></a></li>
+            <li id="menu-item-13" class="menu-item"><a href="https://viettuts.vn/java"><span>Java</span></a></li>
+            <li id="menu-item-14" class="menu-item"><a href="https://viettuts.vn/servlet"><span>Servlet</span></a></li>
+            <li id="menu-item-15" class="menu-item"><a href="https://viettuts.vn/jsp"><span>JSP</span></a></li>
+            <li id="menu-item-16" class="menu-item"><a href="https://viettuts.vn/struts2"><span>Struts2</span></a></li>
+            <li id="menu-item-17" class="menu-item"><a href="https://viettuts.vn/hibernate"><span>Hibernate</span></a></li>
+            <li id="menu-item-18" class="menu-item"><a href="https://viettuts.vn/spring"><span>Spring</span></a></li>
+            <li id="menu-item-20" class="menu-item"><a href="https://viettuts.vn/mybatis"><span>MyBatis</span></a></li>
+            <li id="menu-item-19" class="menu-item"><a href="https://viettuts.vn/web-service"><span>Java WS</span></a></li>
+            <li id="menu-item-25" class="menu-item"><a href="https://viettuts.vn/lap-trinh-c"><span>C</span></a></li>
+            <li id="menu-item-25" class="menu-item"><a href="https://viettuts.vn/lap-trinh-cpp"><span>C++</span></a></li>
+            <li id="menu-item-25" class="menu-item"><a href="https://viettuts.vn/csharp"><span>C#</span></a></li>
+            <li id="menu-item-24" class="menu-item"><a href="https://viettuts.vn/python"><span>Python</span></a></li>
+            <li id="menu-item-26" class="menu-item"><a href="https://viettuts.vn/php"><span>PHP</span></a></li>
+            <li id="menu-item-21" class="menu-item"><a href="https://viettuts.vn/excel"><span>Excel</span></a></li>
+            <li id="menu-item-22" class="menu-item"><a href="https://viettuts.vn/excel-vba"><span>VBA</span></a></li>
+            <li id="menu-item-23" class="menu-item menu-item-has-children">
+              <a href="https://viettuts.vn/web"><span>Web</span></a>
+              <ul class="sub-menu">
+                <li id="menu-item-24" class="menu-item"><a href="https://viettuts.vn/javascript"><span>JavaScript</span></a></li>
+                <li id="menu-item-3071" class="menu-item"><a href="https://viettuts.vn/jquery"><span>JQUERY</span></a></li>
+                <li id="menu-item-3072" class="menu-item"><a href="https://viettuts.vn/json"><span>JSON</span></a></li>
+                <li id="menu-item-3073" class="menu-item"><a href="https://viettuts.vn/ajax"><span>AJAX</span></a></li>
+                <li id="menu-item-3075" class="menu-item"><a href="https://viettuts.vn/css"><span>CSS</span></a></li>
+                <li id="menu-item-3076" class="menu-item"><a href="https://viettuts.vn/html"><span>HTML</span></a></li>
+                <li id="menu-item-3079" class="menu-item"><a href="https://viettuts.vn/html5"><span>HTML5</span></a></li>
+                <li id="menu-item-3077" class="menu-item"><a href="https://viettuts.vn/nodejs"><span>Node.js</span></a></li>
+				<li id="menu-item-3078" class="menu-item"><a href="https://viettuts.vn/angular7"><span>Angular 7</span></a></li>
+              </ul>
+            </li>
+            <li id="menu-item-3077" class="menu-item menu-item-has-children">
+              <a href="https://viettuts.vn/sql"><span>SQL</span></a>
+              <ul class="sub-menu">
+                <li id="menu-item-3078" class="menu-item"><a href="https://viettuts.vn/mysql"><span>MySQL</span></a></li>
+                <li id="menu-item-3079" class="menu-item"><a href="https://viettuts.vn/sql-server"><span>SQL Server</span></a></li>
+              </ul>
+            </li>
+            <li id="menu-item-3080" class="menu-item menu-item-has-children">
+              <a href="https://viettuts.vn/misc"><span>Misc</span></a>
+              <ul class="sub-menu">
+                <li id="menu-item-3080" class="menu-item"><a href="https://viettuts.vn/eclipse"><span>Eclipse</span></a></li>
+                <li id="menu-item-3081" class="menu-item"><a href="https://viettuts.vn/phan-mem-tien-ich"><span>Phần mềm tiện ích</span></a></li>
+                <li id="menu-item-3082" class="menu-item"><a href="https://viettuts.vn/cau-truc-du-lieu-va-giai-thuat"><span>Cấu trúc DL&amp;GT</span></a></li>
+                <li id="menu-item-3084" class="menu-item"><a href="https://viettuts.vn/selenium"><span>Selenium Test</span></a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="site-inner" style="height: auto !important;">
+        <div class="content-sidebar-wrap">
+          <div class="dynamic-menu">
+            <!--<div class="ad-left-menu" th:utext="${adLeftMenuTop}"></div> -->
+            <div><div id="dy-menu">
+  <div class="leftmenu2">
+    <a href="https://viettuts.vn/java"><span>Java Cơ Bản</span></a>
+    <a href="https://viettuts.vn/java/tong-quan-java-oops"><span>Các Khái Niệm Java OOPs</span></a>
+    <a href="https://viettuts.vn/java-string"><span>Java String</span></a>
+    <a href="https://viettuts.vn/exception-handling"><span>Xử Lý Ngoại Lệ</span></a>
+    <a href="https://viettuts.vn/java-inner-class"><span>Các Lớp Lồng Nhau</span></a>
+    <a href="https://viettuts.vn/java-awt"><span>Java AWT</span></a>
+  </div>
+
+  <div class="leftmenu2">
+    <h2 class="spanh2"><span class="spanh2">Bài tập Java Swing</span></h2>
+  </div>  
+    <div class="leftmenu">
+      <a href="https://viettuts.vn/java-swing/giai-phuong-trinh-bac-2">Giải phương trình bậc 2</a>
+      <a href="https://viettuts.vn/java-swing/dong-ho-trong-java-swing">Đồng hồ trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/dem-tu-trong-java-swing">Đếm số từ của một chuỗi</a>
+      <a href="https://viettuts.vn/java-swing/truyen-file-bang-giao-thuc-tcpip">Truyền file bằng giao thức TCP/IP</a>
+      <a href="https://viettuts.vn/bai-tap-java/bai-tap-quan-ly-sinh-vien-trong-java-swing">Java Swing - Bài tập quản lý sinh viên</a>
+    </div>
+
+  <div class="leftmenu2">
+    <h2 class="spanh2"><span class="spanh2">Java Swing</span></h2>
+  </div>  
+    <div class="leftmenu">
+      <a href="https://viettuts.vn/java-swing">Swing trong java</a>
+      <a href="https://viettuts.vn/java-swing/lop-jlabel-trong-java-swing">Lớp JLabel trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-jbutton-trong-java-swing">Lớp JButton trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-jtable-trong-java-swing">Lớp JTable trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-graphics-trong-java-swing">Lớp Graphics trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-jcolorchooser-trong-java-swing">Lớp JColorchooser trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-jcheckbox-trong-java-swing">Lớp JCheckbox trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-jradiobutton-trong-java-swing">Lớp JRadiobutton trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-jlist-trong-java-swing">Lớp JList trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-jcombobox-trong-java-swing">Lớp JCombobox trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-jtextfield-trong-java-swing">Lớp JTextfield trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-jtextarea-trong-java-swing">Lớp JTextarea trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-imageicon-trong-java-swing">Lớp Imageicon trong Java Swing</a>
+
+      <a href="https://viettuts.vn/java-swing/lop-jscrollbar-trong-java-swing">Lớp JScrollbar trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-joptionpane-trong-java-swing">Lớp JOptionPane trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-jfilechooser-trong-java-swing">Lớp JFileChooser trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-jprogressbar-trong-java-swing">Lớp JProgressbar trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-jslider-trong-java-swing">Lớp JSlider trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-jspinner-trong-java-swing">Lớp JSpinner trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-jpanel-trong-java-swing">Lớp JPanel trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-jframe-trong-java-swing">Lớp JFrame trong Java Swing</a>
+
+      <a href="https://viettuts.vn/java-swing/lop-jwindow-trong-java-swing">Lớp JWindow trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-jmenubar-trong-java-swing">Lớp JMenubar trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-jmenuitem-trong-java-swing">Lớp JMenuItem trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-jmenu-trong-java-swing">Lớp JMenu trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-jcheckboxmenuitem-trong-java-swing">Lớp JCheckboxMenuItem trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-jradiobuttonmenuitem-trong-java-swing">Lớp JRadioButtonMenuItem trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-jpopupmenu-trong-java-swing">Lớp JPopupMenu trong Java Swing</a>
+    </div>
+
+  <div class="leftmenu2">
+    <h2 class="spanh2"><span class="spanh2">Java Swing - Layout</span></h2>
+  </div>
+    <div class="leftmenu">
+      <a href="https://viettuts.vn/java-swing/layout-trong-java-swing">Layout trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/boxlayout-trong-java-swing">BoxLayout trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/borderlayout-trong-java-swing">BorderLayout trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/cardlayout-trong-java-swing">CardLayout trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/flowlayout-trong-java-swing">FlowLayout trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/gridlayout-trong-java-swing">GridLayout trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/gridbaglayout-trong-java-swing">GridbagLayout trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/grouplayout-trong-java-swing">GroupLayout trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/springlayout-trong-java-swing">SpringLayout trong Java Swing</a>
+    </div>
+
+  <div class="leftmenu2">
+    <h2 class="spanh2"><span class="spanh2">Java Swing - Event Listener</span></h2>
+  </div>
+    <div class="leftmenu">
+      <a href="https://viettuts.vn/java-swing/xu-ly-su-kien-trong-java-swing">Xử lý sự kiện trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/event-listener-trong-java-swing" style="color: rgb(254, 137, 0); font-weight: bold;">Event Listener trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/event-adapter-trong-java-swing">Event Adapter trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/action-listener-trong-java-swing">Action Listener trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/component-listener-trong-java-swing">Component Listener trong Java Swing</a>
+	  
+      <a href="https://viettuts.vn/java-swing/item-listener-trong-java-swing">ItemListener trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/key-listener-trong-java-swing">KeyListener trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/mouse-listener-trong-java-swing">MouseListener trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/windowlistener-trong-java-swing">WindowListener trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/adjustmentlistener-trong-java-swing">AdjustmentListener trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/containerlistener-trong-java-swing">ContainerListener trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/mousemotionlistener-trong-java-swing">MouseMotionListener trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/focuslistener-trong-java-swing">FocusListener trong Java Swing</a>
+	  
+      <a href="https://viettuts.vn/java-swing/lop-focusadapter-trong-java-swing">Lớp FocusAdapter trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-keyadapter-trong-java-swing">Lớp KeyAdapter trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-mouseadapter-trong-java-swing">Lớp MouseAdapter trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-mousemotionadapter-trong-java-swing">Lớp MouseMotionAdapter trong Java Swing</a>
+      <a href="https://viettuts.vn/java-swing/lop-windowadapter-trong-java-swing">Lớp WindowAdapter trong Java Swing</a>
+    </div>
+  
+  <div class="leftmenu2">
+    <a href="https://viettuts.vn/java-io"><span>Java I/O</span></a>
+    <a href="https://viettuts.vn/vi-du-java-io"><span>Ví Dụ Java I/O</span></a>
+    <a href="https://viettuts.vn/lap-trinh-mang-voi-java"><span>Lập Trình Mạng Với Java</span></a>
+    <a href="https://viettuts.vn/java-date"><span>Java Date</span></a>
+    <a href="https://viettuts.vn/java-conversion"><span>Chuyển Đối Kiểu Dữ Liệu</span></a>
+    <a href="https://viettuts.vn/java-collection"><span>Java Collections</span></a>
+    <a href="https://viettuts.vn/java-jdbc"><span>Java JDBC</span></a>
+    <a href="https://viettuts.vn/java-new-features"><span>Các Tính Năng Mới Trong Java</span></a>
+    <a href="https://viettuts.vn/bai-tap-java"><span>Bài Tập Java Có Lời Giải</span></a>
+    <a href="https://viettuts.vn/interview/list-cau-hoi-phong-van-java-core"><span>Câu Hỏi Phỏng Vấn Java</span></a>
+  </div>
+</div>
+<div class="clearer"></div></div>
+            <div class="clearer"></div>
+            <div class="ad-left-menu-main ad-left-menu">
+                <!-- ga Ad-left-menu -->
+                <div id="ad-left-menu-main-ga"><script async="" src="./Event Listener trong Java Swing - Học lập trình Java online - VietTuts_files/f.txt"></script>
+<!-- ad-left-auto-size -->
+<ins class="adsbygoogle" style="display:inline-block;width:215px;height:600px" data-ad-client="ca-pub-4405294953475693" data-ad-slot="2628049951"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+                <!-- at Ad-left-menu -->
+                <!--
+                <div id="ad-left-menu-main-at">
+                    <div th:if="${atLeftLink != null}" class="at">
+                      <a th:href="${atLeftLink}" target="_blank" rel="nofollow">
+                        <img th:src="${atLeftImage}" />
+                      </a>
+                    </div>
+                </div>
+                 -->
+             </div>
+          </div>
+          <main class="content" style="height: auto !important;">
+            <article class="page type-page status-publish entry" style="height: auto !important;">
+              <header class="entry-header">
+                <!-- <p> Add content header </p> -->
+                <div class="ad-content-header" id="ad-content-header-ga">   <script async="" src="./Event Listener trong Java Swing - Học lập trình Java online - VietTuts_files/f.txt"></script>
+   <!-- tuts-content-header-720x90 -->
+   <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4405294953475693" data-ad-slot="3865953361" data-ad-format="auto" data-full-width-responsive="true"></ins>
+   <script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+   </script></div>
+                <div class="slideshow-container" id="slideshow-container-at" style="display: none;">                    <div class="mySlides fade">
+                      <div class="numbertext">1 / 3</div>
+                      <a href="https://shorten.asia/bAvSW62h" target="_blank" rel="nofollow">
+                        <img src="./Event Listener trong Java Swing - Học lập trình Java online - VietTuts_files/lazada_di_dong_phu_kien_header.png" width="766px">
+                      </a>
+                      <div class="text"></div>
+                    </div>
+                    <a class="prevImageAT" onclick="plusSlides(-1)">❮</a>
+                    <a class="nextImageAT" onclick="plusSlides(1)">❯</a>
+</div>
+                <h1 class="entry-title">Event Listener trong Java Swing</h1>
+                <!-- 
+                <div class="post-views">
+                  <i class="fa fa-eye"></i>
+                    <span class="td-views" th:utext="${postTemplate.postPageViews} + ' views'"></span>
+                </div>
+                <div class="clearer"></div>
+                -->
+                
+              </header>
+              <div class="entry-content" style="height: auto !important;">
+                <div><hr>
+<div class="pre-btn"><a href="https://viettuts.vn/java-swing/xu-ly-su-kien-trong-java-swing"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Xử lý sự kiện trong Java Swing </a></div>
+<div class="nxt-btn"><a href="https://viettuts.vn/java-swing/event-adapter-trong-java-swing"> Event Adapter trong Java Swing <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> </a></div>
+<div class="clearer"></div>
+<hr>
+
+<p>Event Listener biểu diễn các giao diện chịu trách nhiệm xử lý các sự kiện. Java cung cấp các lớp Event Listener đa dạng, nhưng trong chương này chúng ta chỉ tập trung vào các lớp mà thường xuyên được sử dụng. Mỗi phương thức của một Event Listener có một tham số đơn là một đối tượng mà là lớp con của lớp EventObject. </p>
+<p><b>EventListener Interface</b> là một marker interface mà mỗi listener phải kế thừa. Lớp này được định nghĩa trong java.util package.</p>
+
+<hr>
+<div class="goto-wrapper mom_list">
+<p>Nội dung chính </p>
+<ul id="go-to-detail">
+<li class="list-goto-1">
+<a href="https://viettuts.vn/java-swing/event-listener-trong-java-swing#goto-h2-1">Cú pháp để khai báo java.util.EventListener Interface là:</a>
+</li>
+<li class="list-goto-2">
+<a href="https://viettuts.vn/java-swing/event-listener-trong-java-swing#goto-h2-2">Các Event Listener Interface trong Java Swing</a>
+</li>
+</ul>
+</div>
+<h2 id="goto-h2-1">Cú pháp để khai báo java.util.EventListener Interface là:</h2>
+<div class="codeblock">
+<div><div id="highlighter_912581" class="syntaxhighlighter  java"><div class="toolbar"><span><a href="https://viettuts.vn/java-swing/event-listener-trong-java-swing#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="java keyword">public</code> <code class="java keyword">interface</code> <code class="java plain">EventListener</code></div></div></td></tr></tbody></table></div></div>
+</div>
+
+<hr>
+<div class="ad-content">
+        <!-- tuts-in-content-1 -->
+        <script async="" src="./Event Listener trong Java Swing - Học lập trình Java online - VietTuts_files/f.txt"></script>
+        <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-4405294953475693" data-ad-slot="3394562752"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        </div><br>
+<h2 id="goto-h2-2">Các Event Listener Interface trong Java Swing</h2>
+<p>Bảng dưới liệt kê một số Event Listener được sử dụng phổ biến:</p>
+<table class="alt">
+<tbody><tr><th>STT</th><th>Lớp &amp; Mô tả</th></tr>
+<tr>
+<td>1</td>
+<td><a href="https://viettuts.vn/java-swing/action-listener-trong-java-swing">ActionListener Interface</a><p>Interface này được sử dụng để nhận action event</p></td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://viettuts.vn/java-swing/component-listener-trong-java-swing">ComponentListener Interface</a><p>Interface này được sử dụng để nhận component event</p></td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://viettuts.vn/java-swing/item-listener-trong-java-swing">ItemListener Interface</a><p>Interface này được sử dụng để nhận item event</p></td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://viettuts.vn/java-swing/key-listener-trong-java-swing">KeyListener Interface</a><p>Interface này được sử dụng để nhận key event</p></td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://viettuts.vn/java-swing/mouse-listener-trong-java-swing">MouseListener Interface</a><p>Interface này được sử dụng để nhận mouse event</p></td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://viettuts.vn/java-swing/window-listener-trong-java-swing">WindowListener Interface</a><p>Interface này được sử dụng để nhận window event</p></td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://viettuts.vn/java-swing/adjustment-listener-trong-java-swing">AdjustmentListener Interface</a><p>Interface này được sử dụng để nhận adjusmtent event</p></td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://viettuts.vn/java-swing/container-listener-trong-java-swing">ContainerListener Interface</a><p>Interface này được sử dụng để nhận container event</p></td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="https://viettuts.vn/java-swing/mousemotion-listener-trong-java-swing">MouseMotionListener Interface</a><p>Interface này được sử dụng để nhận mouse motion event</p></td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="https://viettuts.vn/java-swing/focus-listener-trong-java-swing">FocusListener Interface</a><p>Interface này được sử dụng để nhận focus event</p></td>
+</tr>
+</tbody></table>
+
+<hr>
+<div class="pre-btn"><a href="https://viettuts.vn/java-swing/xu-ly-su-kien-trong-java-swing"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Xử lý sự kiện trong Java Swing </a></div>
+<div class="nxt-btn"><a href="https://viettuts.vn/java-swing/event-adapter-trong-java-swing"> Event Adapter trong Java Swing <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> </a></div>
+<div class="clearer"></div>
+<hr></div>
+
+                <!-- <p> AD content footer matched content </p> -->
+                <!-- <div class="ad-content-footer" id="ad-content-footer-mc-ga" th:utext="${adFooterMC}"></div> -->
+
+                <!-- <p> AD content footer auto size </p> -->
+                <!--
+                <div class="ad-content-footer" id="ad-content-footer-ga" th:utext="${adContentFooter}">
+                </div>
+                -->
+
+                <!-- <p> AD content footer AT </p> -->
+                <!--
+                <div class="ad-content-footer" id="ad-content-footer-at" style="display: none;" th:utext="${atLink}">
+                </div>
+                -->
+
+                <!--youtube link-->
+                <!--
+                <div class="ad-content-footer">
+                  <div th:if="${ytLink != null}">
+                    <a th:href="${ytLink}" target="_blank" rel="nofollow">
+                      <img th:src="${ytImage}" />
+                    </a>
+                  </div>
+                </div>
+                -->
+
+                <!-- Google search: https://cse.google.co.in/cse/ -->
+                
+                <!--<div th:if="${postTemplate.postId} != null" class="fb-comments" th:data-href="${postURLFacebookComment}" data-width="100%" data-numposts="10"></div> -->
+              </div>
+            </article>
+          </main>
+          <div class="right-menu">
+            <div class="recent-pages">
+              <h4>Recent Updates</h4>
+              <span><a href="https://viettuts.vn/java/xuat-du-lieu-ra-man-hinh-console-trong-java">Xuất dữ liệu ra màn hình console trong Java</a><a href="https://viettuts.vn/java/cai-dat-moi-truong-java">Cài đặt môi trường Java</a><a href="https://viettuts.vn/bai-tap-java/bai-tap-quan-ly-sinh-vien-trong-java-swing">Java Swing - Bài tập quản lý sinh viên trong java</a><a href="https://viettuts.vn/java-collection/linkedlist-trong-java">LinkedList trong java</a><a href="https://viettuts.vn/java-collection/arraylist-trong-java">ArrayList trong java</a><a href="https://viettuts.vn/bai-tap-java">Bài tập java có lời giải</a><a href="https://viettuts.vn/html/su-dung-javascript-trong-html">Sử dụng Javascript trong HTML</a><a href="https://viettuts.vn/java-new-features/toan-tu-dau-2-cham-trong-java-8">Toán tử dấu 2 chấm (::) trong Java 8</a><a href="https://viettuts.vn/java-new-features/bieu-thuc-lambda-trong-java-8">Lambda Expression - Biểu thức Lambda trong java 8</a><a href="https://viettuts.vn/bai-tap-java/sap-xep-nhanh-quick-sort-trong-java">Bài tập Java - Sắp xếp nhanh (Quick Sort) trong Java</a><a href="https://viettuts.vn/bai-tap-java/sap-xep-chen-insertion-sort-trong-java">Bài tập Java - Sắp xếp chèn (Insertion Sort) trong Java</a><a href="https://viettuts.vn/bai-tap-java/sap-xep-noi-bot-bubble-sort-trong-java">Bài tập Java - Sắp xếp nổi bọt (Bubble Sort) trong Java</a><a href="https://viettuts.vn/sap-tet">Sắp Tết 2024 Rồi! - Còn bao nhiêu ngày nữa là đến tết 2024?</a></span>
+            </div>
+            <!-- tuts-right-300x250 -->
+            <div class="ad-right-menu">              <script async="" src="./Event Listener trong Java Swing - Học lập trình Java online - VietTuts_files/f.txt"></script>
+              <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-4405294953475693" data-ad-slot="5002260221"></ins>
+              <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+              </script></div>
+            <div class="fb-page-tut">
+                <h4>VietTuts on facebook</h4>
+                <div class="fb-page fb_iframe_widget" data-height="200" data-href="https://www.facebook.com/viettuts.vn/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="adapt_container_width=true&amp;app_id=1848307242163903&amp;container_width=299&amp;height=200&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fviettuts.vn%2F&amp;locale=vi_VN&amp;sdk=joey&amp;show_facepile=true&amp;show_posts=false&amp;small_header=false&amp;tabs=timeline"><span style="vertical-align: bottom; width: 299px; height: 200px;"><iframe name="f0eaa1a53400c02d9" width="1000px" height="200px" data-testid="fb:page Facebook Social Plugin" title="fb:page Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="./Event Listener trong Java Swing - Học lập trình Java online - VietTuts_files/page.html" style="border: none; visibility: visible; width: 299px; height: 200px;" class=""></iframe></span></div>
+            </div>
+            <!-- tuts-matched-content-right-300x800 -->
+            <!--<div class="ad-right-menu" id="ad-right-menu-mc" th:utext="${adRight_300_800}"></div>-->
+            <div class="ad-right-menu-main ad-right-menu">
+                <!-- ga-ads-content-right-300x600 -->
+                <div id="ad-right-menu-main-ga">              <script async="" src="./Event Listener trong Java Swing - Học lập trình Java online - VietTuts_files/f.txt"></script>
+              <!-- tuts-right-300x600 -->
+              <ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-4405294953475693" data-ad-slot="1325357764"></ins>
+              <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+              </script></div>
+                <!-- at-ads-content-right-300x600 -->
+                <div id="ad-right-menu-main-at" style="display: none;">
+                    <div class="at">
+                      <a href="https://shorten.asia/hKwT6GvH" target="_blank" rel="nofollow">
+                        <img src="./Event Listener trong Java Swing - Học lập trình Java online - VietTuts_files/shopee-xiaomi-day_297R.png">
+                      </a>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-widgets">
+                <div class="wrap">
+          <div class="widget-area footer-widgets-1 footer-widget-area">
+            <section id="text-2" class="widget widget_text">
+              <div class="widget-wrap">
+                <h5 class="widget-title widgettitle">Danh Sách Bài Học</h5>
+                <div class="textwidget">
+                  <p>
+                    <a href="https://viettuts.vn/java"> Học Java </a> | <a href="https://viettuts.vn/hibernate"> Hibernate </a> | <a href="https://viettuts.vn/spring"> Spring </a><br>
+                    <a href="https://viettuts.vn/excel"> Học Excel </a> | <a href="https://viettuts.vn/excel-vba"> Excel VBA </a><br>
+                    <a href="https://viettuts.vn/servlet"> Học Servlet </a> | <a href="https://viettuts.vn/jsp"> JSP </a> | <a href="https://viettuts.vn/struts2"> Struts2 </a><br>
+                    <a href="https://viettuts.vn/lap-trinh-c"> Học C </a> | <a href="https://viettuts.vn/lap-trinh-c"> C++ </a> | <a href="https://viettuts.vn/csharp"> C# </a><br>
+                    <a href="https://viettuts.vn/python"> Học Python</a><br>
+                    <a href="https://viettuts.vn/sql"> Học SQL</a>
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="widget-area footer-widgets-2 footer-widget-area">
+            <section id="text-3" class="widget widget_text">
+              <div class="widget-wrap">
+                <h5 class="widget-title widgettitle">Bài Tập Có Lời Giải</h5>
+                <div class="textwidget">
+                  <p><a href="https://viettuts.vn/bai-tap-java"> Bài tập Java </a> <br>
+                    <a href="https://viettuts.vn/bai-tap-c"> Bài tập C </a><br>
+                    <a href="https://viettuts.vn/bai-tap-cpp"> Bài tập C++ </a><br>
+                    <a href="https://viettuts.vn/bai-tap-csharp"> Bài tập C# </a><br>
+                    <a href="https://viettuts.vn/bai-tap-python"> Bài tập Python </a><br>
+                    <a href="https://viettuts.vn/vi-du-excel-vba"> Ví dụ Excel VBA </a>
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="widget-area footer-widgets-3 footer-widget-area">
+            <section id="text-4" class="widget widget_text">
+              <div class="widget-wrap">
+                <h5 class="widget-title widgettitle">Câu Hỏi Phỏng Vấn</h5>
+                <div class="textwidget">
+                  <p>
+                    <a href="https://viettuts.vn/interview/list-cau-hoi-phong-van-java-core"> 201 câu hỏi phỏng vấn java </a> <br>
+                    <a href="https://viettuts.vn/interview/list-cau-hoi-phong-van-servlet"> 25 câu hỏi phỏng vấn servlet </a><br>
+                    <a href="https://viettuts.vn/interview/list-cau-hoi-phong-van-jsp"> 75 câu hỏi phỏng vấn jsp </a><br>
+                    <a href="https://viettuts.vn/interview/list-cau-hoi-phong-van-hibernate"> 52 câu hỏi phỏng vấn Hibernate</a><br>
+                    <a href="https://viettuts.vn/interview/list-cau-hoi-phong-van-spring"> 70 câu hỏi phỏng vấn Spring</a><br>
+                    <a href="https://viettuts.vn/interview/list-cau-hoi-phong-van-sql"> 57 câu hỏi phỏng vấn SQL</a>
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+      <footer class="site-footer">
+                <div class="wrap">
+          <a title="Scroll back to top" rel="nofollow" href="https://viettuts.vn/java-swing/event-listener-trong-java-swing#" class="generate-back-to-top" style="opacity: 0; visibility: hidden;" data-scroll-speed="400" data-start-scroll="300">
+          <i class="fa fa-angle-up" aria-hidden="true"></i>
+          <span class="screen-reader-text">Scroll back to top</span>
+          </a>
+          <div id="footer-copyright">
+            <div class="wrap">
+              <div class="row">
+                <p> Copyright © 2016 <a href="https://viettuts.vn/"> VietTuts.Vn </a> all rights reserved.
+                    | <a href="https://viettuts.vn/lien-he"> Liên hệ </a> 
+                    | <a href="https://viettuts.vn/chinh-sach-rieng-tu"> Chính sách - riêng tư </a> 
+                    | <a href="https://viettuts.vn/sitemap.html"> sitemap.html </a> 
+                    | <a href="https://viettuts.vn/sitemap_index.xml"> sitemap_index.xml </a> 
+                  </p>
+                <p>
+                </p>
+              </div>
+            </div>
+          </div>
+          <script type="text/javascript">
+            $(document).ready(function() {
+                $("#dy-menu [href]").each(function() {
+                if (this.href.toUpperCase() == window.location.href.toUpperCase()) {
+                    //$(this).addClass("active");
+                    $(this).css("color", "#fe8900");
+                    $(this).css("font-weight", "bold");
+                    }
+                });
+            
+                var mq = window.matchMedia( "(max-width: 1023px)" );
+                if (!mq.matches) {
+                a1 = $(".dynamic-menu").height();
+                a2 = $(".content").height();
+                // if (a1 > a2) {
+                    // $(".content").css("height", (a1));
+                //}
+            
+                    //a1 = $("#dy-menu").height();
+                    if (a2 < 2700) {
+                        $("#ad-right-menu-mc").css('display','none');
+                    }
+                }
+                
+                // always show ad-right-menu-main when scroll down
+                var div = $(".ad-right-menu-main");
+                var divAdLeft = $(".ad-left-menu-main");
+                
+                var pos = div.position();
+                var posAdLeft = divAdLeft.position();
+                
+                $(window).scroll(function() {
+                    var windowpos = $(window).scrollTop();
+                    var bottompos = $(document).height() - $(window).height() - $(window).scrollTop();
+                    // show ad right when scroll
+                    if (bottompos < 100) {
+                        div.addClass("BottomScroll");
+                        div.removeClass("BeforeScroll");
+                        div.removeClass("AfterScroll");
+                    } else if (pos.top + 100 > windowpos) {
+                        div.addClass("AfterScroll");
+                        div.removeClass("BeforeScroll");
+                        div.removeClass("BottomScroll");
+                    } else {
+                        div.addClass("BeforeScroll");
+                        div.removeClass("AfterScroll");
+                        div.removeClass("BottomScroll");
+                    }
+                    // show ad left when scroll
+                    if (bottompos < 100) {
+                        divAdLeft.addClass("BottomScroll");
+                        divAdLeft.removeClass("BeforeScroll");
+                        divAdLeft.removeClass("AfterScroll");
+                    } else if (posAdLeft.top + 100 > windowpos) {
+                        divAdLeft.addClass("AfterScroll");
+                        divAdLeft.removeClass("BeforeScroll");
+                        divAdLeft.removeClass("BottomScroll");
+                    } else {
+                        divAdLeft.addClass("BeforeScroll");
+                        divAdLeft.removeClass("AfterScroll");
+                        divAdLeft.removeClass("BottomScroll");
+                    }
+                });
+            });
+          </script>
+          <script type="text/javascript">
+            function showmenu() {
+                if ($(".dynamic-menu").css('display') == 'none') {
+                    $(".dynamic-menu").css('display','block');
+                } else {
+                    $(".dynamic-menu").css('display','none');
+                }
+            }
+          </script>
+          <script type="text/javascript">
+            jQuery(document).ready(function(a){var b=a(".generate-back-to-top").data("start-scroll"),c=a(".generate-back-to-top").data("scroll-speed"),d=a("a.generate-back-to-top"),e=a(window);e.scroll(function(){e.scrollTop()>b?a(d).css({opacity:"1",visibility:"visible"}):a(d).css({opacity:"0",visibility:"hidden"})}),a(d).on("click",function(b){b.preventDefault(),a("html, body").animate({scrollTop:0},c)})});
+          </script>
+        </div>
+      </footer>
+      <input type="hidden" id="postId" name="postId" value="2394">
+      <input type="hidden" id="verifyPage" name="verifyPage" value="$2a$10$p3.Sen3TT7qZ2IABuc3X..B8UKyU6x45RXdcz8IhpVRW44LQbKcJi">
+    </div>
+  
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div></div></div></div></body></html>
